@@ -2,7 +2,7 @@
 const url = 'https://wbdv-generic-server.herokuapp.com/api/apetrides/courses';
 
 const createCourse = (course) =>
-    fetch("https://wbdv-generic-server.herokuapp.com/api/apetrides/courses", {
+    fetch(url, {
         method: 'POST',
         body: JSON.stringify(course),
         headers: {
