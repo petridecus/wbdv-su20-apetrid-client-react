@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ModuleComponent from '../components/ModuleComponent';
-import '../styles/CourseEditor.css'
 
 class ModuleListContainer extends React.Component {
     render() {
