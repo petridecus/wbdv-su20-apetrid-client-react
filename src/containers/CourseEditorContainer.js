@@ -5,8 +5,6 @@ import ModuleListContainer from './ModuleListContainer';
 import LessonTabsContainer from './LessonTabsContainer';
 import TopicPillsContainer from './TopicPillsContainer';
 
-import '../styles/CourseEditor.css'
-
 class CourseEditorContainer extends React.Component {
     state = {
         lessons: [
