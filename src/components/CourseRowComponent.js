@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CourseRowComponent extends React.Component {
     removeCourse = (id) => {
@@ -7,15 +8,19 @@ class CourseRowComponent extends React.Component {
 
     render() {
         return (
-            <div class="wbdv-course wbdv-row align-items-center d-flex flex-row">
-                <div class="col-11">
-                    <div class="row align-items-center">
-                        <button class="btn wbdv-row wbdv-title mr-auto">{this.props.title}</button>
-                        <div class="wbdv-row wbdv-owner mr-auto">{this.props.owner}</div>
-                        <div class="wbdv-row wbdv-modified-date mr-auto">{this.props.modified}</div>
+            <div className="wbdv-course wbdv-row align-items-center d-flex flex-row">
+                <div className="col-11">
+                    <div className="row align-items-center">
+                        <button className="btn wbdv-row wbdv-title mr-auto">
+                            <Link to={`/editor/${this.props._id}`}>
+                                {this.props.title}
+                            </Link>
+                        </button>
+                        <div className="wbdv-row wbdv-owner mr-auto">{this.props.owner}</div>
+                        <div className="wbdv-row wbdv-modified-date mr-auto">{this.props.modified}</div>
                     </div>
                 </div>
-                <button class="col-1 wbdv-row wbdv-button wbdv-delete mr-auto btn rounded-circle"
+                <button className="col-1 wbdv-row wbdv-button wbdv-delete mr-auto btn rounded-circle"
                         onClick={() => this.removeCourse(this.props._id)}>
                     &times;</button>
             </div>

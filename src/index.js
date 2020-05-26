@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import WhiteBoard from './WhiteBoard';
 import * as serviceWorker from './serviceWorker';
+
+import WhiteBoard from './WhiteBoard';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import './index.css';
+import './WhiteBoard.css';
 
 ReactDOM.render(
   <React.StrictMode>

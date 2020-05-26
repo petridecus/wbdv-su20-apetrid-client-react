@@ -1,42 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 html, body, .container-fluid {
   border: 0;
   margin: 0;
@@ -155,6 +116,78 @@ h6 {
   padding-top: 1vh;
 }
 
+/* editor styles */
+
+.btn, .btn:hover {
+  color: azure;
+}
+
+.editor-row {
+  padding-right: 2vw;
+}
+
+.nav-light-text {
+  color: azure;
+}
+
+.editor-container {
+  background-image: linear-gradient(to right, #333333, #222222);
+}
+
+.content-frame {
+  justify-content: center;
+}
+
+.content-frame-right {
+  background-color: azure;
+  margin-top: 2vh;
+}
+
+.wbdv-module-list {
+  color: azure;
+  padding: 2vh;
+}
+
+.wbdv-module-item {
+  margin: 2vh;
+  background-color: #444444;
+  height: min-content;
+  padding: 1vh;
+}
+
+.wbdv-module-item-title {
+  justify-content: left;
+}
+
+.wbdv-module-item:hover {
+  background-color: #666666;
+}
+
+.wbdv-module-item:active {
+  background-color: #555555;
+}
+
+.wbdv-topic-pill {
+  margin: 2vh;
+}
+
+.dark-text {
+  color: #444444;
+}
+
+.dark-text:hover {
+  color: #444444;
+  background-color: #c0cccc;
+}
+
+.topic-frame {
+  color: #333333;
+  margin-bottom: 2vh;
+  padding: 2vh;
+  background-color: #f9ffff;
+}
+
+
 @media (max-width: 600px) {
   .wbdv-owner, .wbdv-modified-date {
       display: none;
@@ -182,5 +215,18 @@ h6 {
   }
   .wbdv-new-course {
       justify-content: center;
+  }
+
+  .wbdv-new-page-btn, .wbdv-topic-pill {
+    display: none;
+  }
+
+  .active-topic {
+      display: block;
+      width: 100%;
+  }
+
+  .editor-row {
+      padding-right: 0;
   }
 }

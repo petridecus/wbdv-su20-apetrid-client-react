@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './WhiteBoard.css';
-import CourseManagerComponent from './components/CourseManagerComponent';
+import { BrowserRouter, Route } from 'react-router-dom';
 
+import CourseManagerContainer from './containers/CourseManagerContainer';
+import CourseEditorContainer from './containers/CourseEditorContainer';
 
 function WhiteBoard() {
   return (
-    <div>
-      <CourseManagerComponent/>
-    </div>
+    <BrowserRouter>
+      <Route path='/courses' component={CourseManagerContainer}/>
+      <Route path='/editor' component={CourseEditorContainer}/>
+    </BrowserRouter>
   );
 }
 
