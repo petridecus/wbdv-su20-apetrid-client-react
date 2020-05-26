@@ -7,6 +7,7 @@ import CourseEditorContainer from './containers/CourseEditorContainer';
 function WhiteBoard() {
   return (
     <BrowserRouter>
+      <Route path='/' component={CourseManagerContainer}/>
       <Route path='/courses' component={CourseManagerContainer}/>
       <Route path='/editor' component={CourseEditorContainer}/>
     </BrowserRouter>
