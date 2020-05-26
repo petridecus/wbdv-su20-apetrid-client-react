@@ -1,29 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CourseService from '../services/CourseService'
+
 class CourseRowComponent extends React.Component {
-    removeCourse = (id) => {
-        // will probably be needed to update the course list of the parent component
+    state = {
+        editing: false,
+        course: {
+            _id: this.props._id,
+            title: this.props.title,
+            owner: this.props.owner,
+            modified: this.props.modified
+        }
     }
+
+    setEditing = (editing) =>
+        this.setState({editing: editing})
+
+    ok = () =>
+        CourseService.updateCourse(
+            this.state.course._id,
+            this.state.course
+        )
+            .then(status => this.setEditing(false))
+
+    updateCourseTitle = newTitle =>
+        this.setState(prevState => ({
+            course: {
+                ...prevState.course,
+                title: newTitle
+            }
+        }))
 
     render() {
         return (
-            <div className="wbdv-course wbdv-row align-items-center d-flex flex-row">
-                <div className="col-11">
-                    <div className="row align-items-center">
-                        <button className="btn wbdv-row wbdv-title mr-auto">
-                            <Link to={`/editor/${this.props._id}`}>
-                                {this.props.title}
-                            </Link>
-                        </button>
-                        <div className="wbdv-row wbdv-owner mr-auto">{this.props.owner}</div>
-                        <div className="wbdv-row wbdv-modified-date mr-auto">{this.props.modified}</div>
-                    </div>
+            <li className="list-group-item">
+            <div className="wbdv-course wbdv-row align-items-center d-flex flex-column">
+                <div className="d-flex w-100 justify-content-between align-items-center">
+                <Link className="btn wbdv-row wbdv-title mr-auto" to={`/editor/${this.state.course._id}`}>
+                    {this.state.course.title}
+                </Link>
+                <div className="wbdv-row wbdv-owner mr-auto">{this.state.course.owner}</div>
+                <div className="wbdv-row wbdv-modified-date mr-auto">{}</div>
+                <button className="wbdv-row wbdv-button wbdv-delete ml-auto btn rounded-circle"
+                        onClick={() => this.props.removeCourse(this.state.course._id)}>
+                    &times;
+                </button>
                 </div>
-                <button className="col-1 wbdv-row wbdv-button wbdv-delete mr-auto btn rounded-circle"
-                        onClick={() => this.removeCourse(this.props._id)}>
-                    &times;</button>
             </div>
+            </li>
         );
     }
 }

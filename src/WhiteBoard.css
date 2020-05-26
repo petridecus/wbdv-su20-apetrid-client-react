@@ -89,6 +89,12 @@ h1 {
   margin-bottom: 2vh;
 }
 
+.classes-grid {
+  margin-left: 2%;
+  margin-right: 2%;
+  display: block;
+}
+
 h6 {
   margin: 2%;
   margin-bottom: 1%;
@@ -110,6 +116,7 @@ h6 {
 
 .wbdv-delete {
   justify-content: right;
+  color: black;
 }
 
 .wbdv-sort {
@@ -118,7 +125,7 @@ h6 {
 
 /* editor styles */
 
-.btn, .btn:hover {
+.editor-btn, .editor-btn:hover {
   color: azure;
 }
 
@@ -187,6 +194,34 @@ h6 {
   background-color: #f9ffff;
 }
 
+.course-card {
+  margin-top: 1%;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .course-card {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .course-card {
+    width: 33.333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .course-card {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .course-card {
+    width: 16.666%;
+  }
+}
 
 @media (max-width: 600px) {
   .wbdv-owner, .wbdv-modified-date {

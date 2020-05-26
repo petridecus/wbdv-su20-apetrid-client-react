@@ -4,27 +4,19 @@ import CourseRowComponent from './CourseRowComponent';
 class CourseTableComponent extends React.Component {
     render() {
         return (
-            <div>
+            <span>
                 <div className="container-fluid all-classes">
                     <div className="d-flex flex-column class-list">
                         <h6>Today</h6>
                         <ul className="list-group justify-content-center">
-                        {
-                            this.props.courses.map(course => {
-                                let today = new Date();
-                                let month = today.getMonth();
-                                return (
-                                    <li className="list-group-item">
-                                        {
-                                            true &&
-                                            <CourseRowComponent _id={course._id}
-                                                                title={course.title}
-                                                                owner={course.owner}
-                                                                modified={course.modified}/>
-                                        }
-                                    </li>
-                                )})
-                        }
+                            {
+                                this.props.courses.map(course =>
+                                    <CourseRowComponent _id={course._id} 
+                                                        title={course.title} 
+                                                        owner={course.owner}
+                                                        removeCourse={this.props.removeCourse}/>
+                                )
+                            }
                         </ul>
                     </div>
                     <div className="d-flex flex-column class-list">
@@ -33,13 +25,7 @@ class CourseTableComponent extends React.Component {
                         {
                             this.props.courses.map(course =>
                                 <li className="list-group-item">
-                                    {
-                                        true &&
-                                        <CourseRowComponent _id={course._id}
-                                                            title={course.title}
-                                                            owner={course.owner}
-                                                            modified={course.modified}/>
-                                    }
+                                    
                                 </li>
                             )
                         }
@@ -52,11 +38,7 @@ class CourseTableComponent extends React.Component {
                             this.props.courses.map(course =>
                                 <li className="list-group-item">
                                     {
-                                        true &&
-                                        <CourseRowComponent _id={course._id}
-                                                            title={course.title}
-                                                            owner={course.owner}
-                                                            modified={course.modified}/>
+
                                     }
                                 </li>
                             )
@@ -64,7 +46,7 @@ class CourseTableComponent extends React.Component {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </span>
         );
     }
 }

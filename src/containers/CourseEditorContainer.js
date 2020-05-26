@@ -28,20 +28,20 @@ class CourseEditorContainer extends React.Component {
     render() {
         return (
             <div className="container-fluid editor-container">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <Link to={'/courses'}>
-                        <button className="wbdv-course-editor wbdv-close float-left nav-link btn btn-dark rounded-circle nav-light-text" >
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-row">
+                    <div className="d-flex w-100 align-items-center">
+                        <Link className="wbdv-course-editor wbdv-close mr-auto nav-link btn btn-dark rounded-circle nav-light-text" to={'/courses'}>
                             &times;
-                        </button>
-                    </Link>
-                    <div className="wbdv-course-title navbar-brand float-left">Course Title</div>
-                    <LessonTabsContainer lessons={this.state.lessons}/>
-                    <a href="#" className="wbdv-new-page-btn btn light-text mr-auto">{'\u002b'}</a>
+                        </Link>
+                        <div className="wbdv-course-title navbar-brand mr-auto">Course Title</div>
+                        <LessonTabsContainer lessons={this.state.lessons}/>
+                        <button className="wbdv-new-page-btn btn editor-btn light-text ml-auto">{'\u002b'}</button>
+                    </div>
                 </nav>
                 <div className="row editor-row">
                 <div className="content-frame col-4 rounded">
                     <ModuleListContainer modules={this.state.modules}/>
-                    <a href="#" className="wbdv-module-item-add-btn btn light-text rounded-circle">{'\u002b'}</a>
+                    <button className="wbdv-module-item-add-btn btn editor-btn light-text rounded-circle">{'\u002b'}</button>
                 </div>
                 <div className="content-frame-right col-8 rounded">
                     <TopicPillsContainer topics={this.state.topics}/>

@@ -4,21 +4,39 @@ import { Link } from 'react-router-dom';
 import CourseTableComponent from '../components/CourseTableComponent';
 import CourseGridComponent from '../components/CourseGridComponent';
 
+import CourseService from '../services/CourseService';
+
 class CourseManagerContainer extends React.Component {
     state = {
         layout: 'table',
-        courses: [
-            {_id: 123, title: 'CS2500', owner: 'me', modified: '1/1/2020'},
-            {_id: 234, title: 'CS2510', owner: 'myself', modified: '2/1/2020'},
-            {_id: 345, title: 'CS3500', owner: 'you', modified: '3/1/2020'},
-            {_id: 456, title: 'CS4550', owner: 'them', modified: '4/1/2020'}
-        ]
+        courses: []
     }
 
-    setLayout = (layout) => {
+    componentDidMount() {
+        CourseService.findAllCourses()
+            .then(courseArray => {
+                this.setState({courses: courseArray});
+            })
+    }
+
+    setLayout = (layout) =>
         this.setState(
             {layout: layout}
         );
+
+    addCourse = courseTitle => {
+        const newCourse = {
+            title: courseTitle,
+            owner: 'me'
+        }
+
+        return CourseService.createCourse(newCourse)
+            .then(course => console.log(course))
+    }
+
+    removeCourse = id => {
+        return CourseService.deleteCourse(id)
+            .then(console.log('deleting course'))
     }
 
     render() {
@@ -41,7 +59,10 @@ class CourseManagerContainer extends React.Component {
                             </form>
                         </li>
                         <li className="nav-item float-right">
-                            <a className="wbdv-button wbdv-add-course nav-link btn btn-dark" href="#">{'\u002b'}</a>
+                            <button className="wbdv-button wbdv-add-course nav-link btn btn-dark"
+                                    onClick={() => this.addCourse('test')}>
+                                {'\u002b'}
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +83,7 @@ class CourseManagerContainer extends React.Component {
                     {
                         this.state.layout === 'table' &&
                         <li className="nav-item float-right">
-                            <button className="wbdv-button wbdv-grid-layout btn"
+                            <button className="wbdv-button wbdv-grid-layout btn editor-btn"
                                     onClick={() => this.setLayout('grid')}>
                                 Grid
                             </button>
@@ -71,7 +92,7 @@ class CourseManagerContainer extends React.Component {
                     {
                         this.state.layout === 'grid' &&
                         <li className="nav-item float-right">
-                            <button className="wbdv-button wbdv-grid-layout btn"
+                            <button className="wbdv-button wbdv-grid-layout btn editor-btn"
                                     onClick={() => this.setLayout('table')}>
                                 Table
                             </button>
@@ -84,7 +105,8 @@ class CourseManagerContainer extends React.Component {
                 <span>
                     {
                         this.state.layout === 'table' &&
-                        <CourseTableComponent courses={this.state.courses}/>
+                        <CourseTableComponent courses={this.state.courses}
+                                                removeCourse={this.removeCourse}/>
                     }
                     {
                         this.state.layout === 'grid' &&

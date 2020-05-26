@@ -4,11 +4,17 @@ import CourseCardComponent from './CourseCardComponent';
 class CourseGridComponent extends React.Component {
     render() {
         return (
-            <div>
-                <h3>Course Grid</h3>
-                <CourseCardComponent/>
-                <CourseCardComponent/>
-                <CourseCardComponent/>
+            <div class="container-fluid">
+                <div className="classes-grid d-flex flex-wrap">
+                    {
+                        this.props.courses.map(course =>
+                            <CourseCardComponent _id={course._id} 
+                                                    title={course.title} 
+                                                    owner={course.owner}
+                                                    removeCourse={this.props.removeCourse}/>
+                        )
+                    }
+                </div>
             </div>
         );
     }
