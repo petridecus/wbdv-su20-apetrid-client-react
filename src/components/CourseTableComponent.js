@@ -4,49 +4,40 @@ import CourseRowComponent from './CourseRowComponent';
 class CourseTableComponent extends React.Component {
     render() {
         return (
-            <span>
-                <div className="container-fluid all-classes">
-                    <div className="d-flex flex-column class-list">
-                        <h6>Today</h6>
-                        <ul className="list-group justify-content-center">
-                            {
-                                this.props.courses.map(course =>
-                                    <CourseRowComponent _id={course._id} 
-                                                        title={course.title} 
-                                                        owner={course.owner}
-                                                        removeCourse={this.props.removeCourse}/>
-                                )
-                            }
-                        </ul>
-                    </div>
-                    <div className="d-flex flex-column class-list">
-                        <h6>Yesterday</h6>
-                        <ul className="list-group justify-content-center">
-                        {
-                            this.props.courses.map(course =>
-                                <li className="list-group-item">
-                                    
-                                </li>
-                            )
-                        }
-                        </ul>
-                    </div>
-                    <div className="class-list">
-                        <h6>Previous 7 days</h6>
-                        <ul className="list-group justify-content-center">
-                        {
-                            this.props.courses.map(course =>
-                                <li className="list-group-item">
-                                    {
+            <tbody className="all-classes">
+                <tr className="bg-dark wbdv-table-title-row">
+                    <th colSpan="4">Today</th>
+                </tr>
+                {
+                    this.props.courses.map(course =>
+                        <CourseRowComponent course={course}
+                                            key={course._id}
+                                            removeCourse={this.props.removeCourse}/>
+                        )
+                }
 
-                                    }
-                                </li>
-                            )
-                        }
-                        </ul>
-                    </div>
-                </div>
-            </span>
+                <tr className="bg-dark wbdv-table-title-row">
+                    <th colSpan="4">Yesterday</th>
+                </tr>
+                {
+                    this.props.courses.map(course =>
+                        <CourseRowComponent course={course}
+                                            key={course._id}
+                                            removeCourse={this.props.removeCourse}/>
+                    )
+                }
+
+                <tr className="bg-dark wbdv-table-title-row">
+                    <th colSpan="4">Previous</th>
+                </tr>
+                {
+                    this.props.courses.map(course =>
+                        <CourseRowComponent course={course}
+                                            key={course._id}
+                                            removeCourse={this.props.removeCourse}/>
+                    )
+                }
+            </tbody>
         );
     }
 }

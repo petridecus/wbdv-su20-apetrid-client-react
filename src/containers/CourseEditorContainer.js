@@ -30,7 +30,7 @@ class CourseEditorContainer extends React.Component {
             <div className="container-fluid editor-container">
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-row">
                     <div className="d-flex w-100 align-items-center">
-                        <Link className="wbdv-course-editor wbdv-close mr-auto nav-link btn btn-dark rounded-circle nav-light-text" to={'/courses'}>
+                        <Link className="wbdv-course-editor wbdv-close mr-auto nav-link btn btn-dark rounded-circle nav-light-text" to={'/table/courses'}>
                             &times;
                         </Link>
                         <div className="wbdv-course-title navbar-brand mr-auto">Course Title</div>

@@ -3,15 +3,10 @@ import LessonTabComponent from '../components/LessonTabComponent';
 
 class LessonTabsContainer extends React.Component {
     render() {
-        return (
-            <span>
-                {
-                    this.props.lessons.map(lesson =>
-                        <LessonTabComponent lesson={lesson}/>
-                    )
-                }
-            </span>
-        );
+        return this.props.lessons.map(lesson =>
+            <LessonTabComponent lesson={lesson}
+                                key={lesson.title}/>
+        )
     }
 }
 

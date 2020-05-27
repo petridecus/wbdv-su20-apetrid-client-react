@@ -8,10 +8,11 @@ class TopicPillsContainer extends React.Component {
             <div className="wbdv-topic-pill-list d-flex flex-row align-items-center">
                 {
                     this.props.topics.map(topic =>
-                        <TopicPillComponent topic={topic}/>
+                        <TopicPillComponent topic={topic}
+                                            key={topic.title}/>
                     )
                 }
-                <a className="wbdv-topic-add-btn btn rounded-circle dark-text ml-auto" href="#" role="button">{'\u002b'}</a>
+                <button className="wbdv-topic-add-btn btn rounded-circle dark-text ml-auto" >{'\u002b'}</button>
             </div>
         );
     }

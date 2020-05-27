@@ -13,6 +13,17 @@ html, body, .container-fluid {
   border: 0;
 }
 
+.btn {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.wbdv-button {
+  color: azure;
+  padding: 2%;
+}
+
 .form-group {
   margin-bottom: 2vh;
 }
@@ -39,15 +50,26 @@ h1 {
   padding: 5vh;
 }
 
+.wbdv-table {
+  width: 100%;
+}
+
+.wbdv-table-row {
+  text-align: center;
+}
+
+.wbdv-table-title-row {
+  color: azure;
+}
+
 .headers {
-  padding-top: 1vh;
-  padding-bottom: 1vh;
   color: azure;
   background-color: #555555;
 }
 
-.wbdv-title.wbdv-header {
-  padding-left: 12vw;
+.wbdv-title.wbdv-header, .wbdv-owner.wbdv-header, .wbdv-last-modified.wbdv-header {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .wbdv-sort, .wbdv-list-layout, .wbdv-grid-layout {
@@ -96,9 +118,12 @@ h1 {
 }
 
 h6 {
+  width: 100%;
   margin: 2%;
-  margin-bottom: 1%;
-  color: #555555;
+  padding-bottom: 5%;
+  background-color: #555555;
+  color: azure;
+  padding-top: 10%;
 }
 
 .all-classes {
@@ -111,12 +136,15 @@ h6 {
 }
 
 .wbdv-row {
-  padding-left: 0;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .wbdv-delete {
-  justify-content: right;
   color: black;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 .wbdv-sort {
@@ -156,6 +184,7 @@ h6 {
 }
 
 .wbdv-module-item {
+  color: azure;
   margin: 2vh;
   background-color: #444444;
   height: min-content;
@@ -175,7 +204,8 @@ h6 {
 }
 
 .wbdv-topic-pill {
-  margin: 2vh;
+  padding: 1%;
+  margin: 2%
 }
 
 .dark-text {

@@ -3,7 +3,7 @@ import React from 'react';
 class TopicPillComponent extends React.Component {
     render() {
         return (
-            <a className="wbdv-topic-pill active-topic btn btn-dark" href="#" role="button">{this.props.topic.title}</a>
+            <button className="wbdv-topic-pill active-topic btn btn-dark">{this.props.topic.title}</button>
         );
     }
 }

@@ -6,12 +6,7 @@ import CourseService from '../services/CourseService'
 class CourseRowComponent extends React.Component {
     state = {
         editing: false,
-        course: {
-            _id: this.props._id,
-            title: this.props.title,
-            owner: this.props.owner,
-            modified: this.props.modified
-        }
+        course: this.props.course
     }
 
     setEditing = (editing) =>
@@ -34,21 +29,45 @@ class CourseRowComponent extends React.Component {
 
     render() {
         return (
-            <li className="list-group-item">
-            <div className="wbdv-course wbdv-row align-items-center d-flex flex-column">
-                <div className="d-flex w-100 justify-content-between align-items-center">
-                <Link className="btn wbdv-row wbdv-title mr-auto" to={`/editor/${this.state.course._id}`}>
-                    {this.state.course.title}
-                </Link>
-                <div className="wbdv-row wbdv-owner mr-auto">{this.state.course.owner}</div>
-                <div className="wbdv-row wbdv-modified-date mr-auto">{}</div>
-                <button className="wbdv-row wbdv-button wbdv-delete ml-auto btn rounded-circle"
-                        onClick={() => this.props.removeCourse(this.state.course._id)}>
-                    &times;
-                </button>
-                </div>
-            </div>
-            </li>
+            <tr className="wbdv-course wbdv-table-row">
+                <th scope="row">
+                    {
+                        !this.state.editing &&
+                        <Link className="btn wbdv-title" to={`/editor/${this.state.course._id}`}>
+                            {this.state.course.title}
+                        </Link>
+                    }
+                    {
+                        this.state.editing &&
+                        <input
+                        className="form-control"
+                        onChange={(event) => this.updateCourseTitle(event.target.value)}
+                        value={this.state.course.title}/>
+                    }
+                </th>
+                <td className="wbdv-owner">{this.state.course.owner}</td>
+                <td className="wbdv-modified-date">{this.state.course.modified}</td>
+                {
+                    this.state.editing === false &&
+                    <td className='btn'
+                        onClick={()=> this.setEditing(true)}>
+                            {'\u270E'}
+                    </td>
+                }
+                {
+                    this.state.editing === true &&
+                    <span>
+                        <td className="btn"
+                                onClick={() => this.ok()}>
+                            {'\u2713'}
+                        </td>
+                        <td className="btn"
+                                onClick={() => this.props.removeCourse(this.state.course)}>
+                            &times;
+                        </td>
+                    </span>
+                }
+            </tr>
         );
     }
 }

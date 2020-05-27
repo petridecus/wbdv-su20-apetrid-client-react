@@ -8,7 +8,8 @@ class ModuleListContainer extends React.Component {
             <ul className="list-group wbdv-module-list">
                 {
                     this.props.modules.map(module =>
-                        <ModuleComponent module={module}/>
+                        <ModuleComponent module={module}
+                                            key={module.title}/>
                     )
                 }
             </ul>
