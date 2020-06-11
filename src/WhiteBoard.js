@@ -17,8 +17,13 @@ function WhiteBoard() {
             path='/:layout/courses'
             exact={true}
             component={CourseManagerContainer}/>
-            
-      <Route path='/editor' component={CourseEditorContainer}/>
+
+          <Route
+            path={['/editor', '/editor/:courseId', '/editor/:courseId/modules/:moduleId',
+                    '/editor/:courseId/modules/:moduleId/lessons/:lessonId',
+                    '/editor/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId']}
+            exact={true}
+            component={CourseEditorContainer}/>
     </BrowserRouter>
   );
 }

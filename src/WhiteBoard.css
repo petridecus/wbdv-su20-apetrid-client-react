@@ -161,6 +161,11 @@ h6 {
   padding-right: 2vw;
 }
 
+.lessons-row {
+  max-width: 50vw;
+  overflow: scroll;
+}
+
 .nav-light-text {
   color: azure;
 }
@@ -171,11 +176,14 @@ h6 {
 
 .content-frame {
   justify-content: center;
+  max-height: 80vh;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .content-frame-right {
   background-color: azure;
-  margin-top: 2vh;
+  /*margin-top: 2vh;*/
 }
 
 .wbdv-module-list {
@@ -201,6 +209,18 @@ h6 {
 
 .wbdv-module-item:active {
   background-color: #555555;
+}
+
+.wbdv-module-add {
+  background-color: inherit;
+  border: none;
+  margin: 2vh;
+  height: min-content;
+  padding: 1vh;
+}
+
+.add-module-button {
+  padding-left: 1vw;
 }
 
 .wbdv-topic-pill {
