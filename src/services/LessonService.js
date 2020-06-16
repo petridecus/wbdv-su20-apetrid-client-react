@@ -12,7 +12,7 @@ const createLesson = (moduleId, newLesson) =>
   })
     .then(response => response.json())
 
-const deleteLesson = (moduleId, lessonId) => {
+const deleteLesson = (lessonId) => {
   return fetch(`https://wbdv-generic-server.herokuapp.com/api/001607780/lessons/${lessonId}`, {
     method: 'DELETE'
   })

@@ -20,8 +20,10 @@ const CourseEditorContainer = ({match}) =>
             <ModuleListContainer {...match}/>
         </div>
         <div className="col-8 rounded">
-            <div className="lessons-row d-flex flex-row w-100">
-                <LessonTabsContainer {...match}/>
+            <div className="overflow-auto">
+                <div className="lessons-row">
+                    <LessonTabsContainer {...match}/>
+                </div>
             </div>
             <div className="content-frame-right">
                 <TopicPillsContainer {...match}/>

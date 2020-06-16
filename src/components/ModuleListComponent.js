@@ -26,7 +26,7 @@ class ModuleListComponent extends React.Component {
                         )
                     }
                 </ul>
-                <div className="wbdv-module-add list-group-item d-flex align-items-center w-100 justify-content-start">
+                <div className="d-flex w-100">
                     <input className="form-control module-add-title mr-auto" onChange={(event) =>
                         this.setState({
                             newModuleTitle: event.target.value

@@ -11,6 +11,8 @@ const stateToPropertyMapper = (state, ownProps) => ({
 const dispatchToPropertyMapper = dispatch => {
     return {
         createLesson: (moduleId, newLesson) => {
+            console.log(moduleId)
+            console.log(newLesson)
             LessonService.createLesson(moduleId, newLesson)
                 .then(actualLesson => dispatch({
                     type: 'CREATE_LESSON',
@@ -24,7 +26,7 @@ const dispatchToPropertyMapper = dispatch => {
                     actualLessons
                 }))
         },
-        deleteLesson  : (lessonId) => {
+        deleteLesson: (lessonId) => {
             LessonService.deleteLesson(lessonId)
               .then(status => dispatch({
                 type: "DELETE_LESSON",
