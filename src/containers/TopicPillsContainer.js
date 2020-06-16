@@ -2,8 +2,10 @@ import {connect} from "react-redux";
 import TopicPillsComponent from "../components/TopicPillsComponent";
 import TopicService from "../services/TopicService";
 
-const stateToPropertyMapper = (state) => ({
-    topics: state.topicReducer.topics
+const stateToPropertyMapper = (state, ownProps) => ({
+    topics: state.topicReducer.topics,
+    newTopicTitle: state.topicReducer.newTopicTitle,
+    params: ownProps.params
 })
 
 const dispatchToPropertyMapper = dispatch => {

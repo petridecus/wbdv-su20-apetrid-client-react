@@ -10,9 +10,10 @@ const createTopic = (lessonId, newTopic) =>
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
+    .then(response =>
+      response.json())
 
-const deleteTopic = (lessonId, topicId) => {
+const deleteTopic = (topicId) => {
     return fetch(`https://wbdv-generic-server.herokuapp.com/api/001607780/topics/${topicId}`, {
     method: 'DELETE'
   })

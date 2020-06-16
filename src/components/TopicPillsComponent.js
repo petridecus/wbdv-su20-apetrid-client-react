@@ -14,13 +14,19 @@ class TopicPillsComponent extends React.Component {
     render() {
         return (
             <div>
-                {
-                    this.props.params.lessonId !== undefined &&
-                    this.props.topics.map(topic =>
-                        <TopicPillComponent topic={topic}
-                                        key={topic._id}/>)
-                }
-                <input className="form-control module-add-title mr-auto" onChange={(event) =>
+                <div className="pills-frame">
+                    {
+                        this.props.params.lessonId !== undefined &&
+                        this.props.topics.map(topic =>
+                            <TopicPillComponent topic={topic}
+                                            key={topic._id}
+                                            courseId={this.props.params.courseId}
+                                            moduleId={this.props.params.moduleId}
+                                            lessonId={this.props.params.lessonId}
+                                            deleteTopic={this.props.deleteTopic}/>)
+                    }
+                </div>
+                <input className="form-control topic-add-title mr-auto" onChange={(event) =>
                     this.setState({
                         newTopicTitle: event.target.value
                     })}
@@ -31,7 +37,7 @@ class TopicPillsComponent extends React.Component {
                                 title: this.state.newTopicTitle
                             }
                         )}
-                        className="wbdv-new-page-btn btn editor-btn light-text ml-auto">{'\u002b'}</button>
+                        className="wbdv-new-page-btn btn">{'\u002b'}</button>
             </div>
         );
     }

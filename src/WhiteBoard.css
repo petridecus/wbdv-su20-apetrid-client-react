@@ -175,6 +175,11 @@ h6 {
   -webkit-overflow-scrolling: touch;
 }
 
+.pills-frame {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .content-frame-right {
   background-color: azure;
   /*margin-top: 2vh;*/
@@ -248,11 +253,20 @@ h6 {
   background-color: #c0cccc;
 }
 
+.lesson-frame {
+  padding: 2%;
+}
+
 .topic-frame {
   color: #333333;
   margin-bottom: 2vh;
   padding: 2vh;
   background-color: #f9ffff;
+}
+
+.topic-add-title {
+  width: 70%;
+  margin: 0;
 }
 
 .course-card {

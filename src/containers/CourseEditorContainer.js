@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import LessonTabsContainer from './LessonTabsContainer';
 import TopicPillsContainer from './TopicPillsContainer';
 import ModuleListContainer from './ModuleListContainer';
+import WidgetContainer from '../containers/WidgetContainer'
 
 const CourseEditorContainer = ({match}) =>
     <div className="container-fluid editor-container">
@@ -26,10 +27,9 @@ const CourseEditorContainer = ({match}) =>
                 </div>
             </div>
             <div className="content-frame-right">
-                <TopicPillsContainer {...match}/>
-                <div className="topic-frame border border-dark rounded">
-                    <h4>Heading</h4>
-                    <div className="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad expedita dolorum nemo, voluptatem quasi id ab porro enim recusandae modi nostrum nulla ullam magni architecto doloremque explicabo. Facere, animi in.</div>
+                <div className="lesson-frame">
+                    <TopicPillsContainer {...match}/>
+                    <WidgetContainer {...match}/>
                 </div>
             </div>
         </div>
